@@ -100,12 +100,12 @@ export default class MyForm extends Component {
 }
 ```
 
-#### Example eager validation
+#### Reactive Validation
 
-To validate the form state on initial render and any time its dependent arguments change, use the `eager` option.
+To validate the form state on initial render and any time its dependent arguments change, use the `validity-reactive` modifier. This modifier is useful for cases where you want the validation state of the form element to respond to changes somewhere else in your form or application.
 
 ```hbs
-  <input {{validity (fn this.matchTo this.match) on="change" eager=true}}>
+  <input {{validity-reactive (fn this.matchTo this.match) on="change"}}>
 ```
 
 ```js
