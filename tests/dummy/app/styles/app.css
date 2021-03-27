@@ -1,0 +1,8 @@
+input {
+  padding: 5px;
+}
+input:invalid {
+  border-color: red;
+  border-style: dashed;
+  background-color: #FFCCCC;
+}

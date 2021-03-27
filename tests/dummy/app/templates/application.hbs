@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">ember-validity-modifier</h2>
 
-{{outlet}}
+<h3>Eager validation smoke test</h3>
+
+<p>The Validated Field is expected to fail validation if its value doesn't match the Match To field. Changing the Match To field changes an argument on the controller, which should trigger re-validation.</p>
+
+<label for="matchTo">Match To:</label>
+<input id="matchTo" value={{this.matchTo}} {{on "change" this.updateMatch}}>
+
+<label for="validatedField">Validated Field:</label>
+<input id="validatedField" {{validity-reactive (fn this.validateMatch this.matchTo) on="change"}}>
+
+<label for="validatedFieldHelper">Validated Field (Helper):</label>
+<input id="validatedFieldHelper" {{validity-reactive (validate-match match=this.matchTo) on="change"}}>
+
+<label for="validatedFieldHelper">Non-reactive:</label>
+<input id="validatedFieldHelper" {{validity (validate-match match=this.matchTo) on="change"}}>
